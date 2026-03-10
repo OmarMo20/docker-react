@@ -1,0 +1,11 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t OmarMo20/dockerr-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true OmarMo20/dockerr-react npm run test
